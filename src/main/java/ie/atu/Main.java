@@ -6,21 +6,27 @@ public class Main {
     public static void main(String[] args) {
         //System.out.println("Hello World");
 
-        book firstbook = new book();
-
-        firstbook.title = "Bloom";
-        firstbook.author = "AJ";
-        firstbook.pageCount = 20;
-        firstbook.available = true;
+        book firstbook = createbook("Bloom","AJ", 21);
+        book secondbook = createbook("Jungle","AJ", 62);
+        book thirdbook = createbook("Pots","Alan", 38);
 
         firstbook.displaydetails();
         System.out.println("\n");
-
-        book secondbook = new book();
-        secondbook.title = "Jungle";
-        secondbook.author = "AJ";
-        secondbook.pageCount = 60;
-        secondbook.available = true;
         secondbook.displaydetails();
+        System.out.println("\n");
+        thirdbook.displaydetails();
+        System.out.println("\n");
+
+        firstbook.borrowbook();
+        firstbook.displaydetails();
+
+        firstbook.borrowbook();
+    }
+    private static book createbook(String title, String author, int pageCount){
+        book book = new book();
+        book.title = title;
+        book.author = author;
+        book.pageCount = pageCount;
+        return book;
     }
 }

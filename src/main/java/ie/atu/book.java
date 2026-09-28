@@ -21,8 +21,8 @@ public class book {
             throw new IllegalArgumentException("pageCount cannot be 0 or less than 0");
         }
 
-        this.title = title;
-        this.author = author;
+        this.title = title.trim();
+        this.author = author.trim();
         this.pageCount = pageCount;
         this.status = BookStatus.Available;
     }

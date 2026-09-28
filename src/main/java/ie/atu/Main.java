@@ -5,10 +5,12 @@ package ie.atu;
 public class Main {
     public static void main(String[] args) {
         book book1 = new book("Dune", "Frank Herbert", 412);
-        System.out.println(book1.getStatus());
         book1.borrow();
+        try {
+            book1.borrow();
+        } catch (IllegalStateException ex) {
+            System.out.println(ex.getMessage());
+        }
         System.out.println(book1.getStatus());
-
-
     }
 }

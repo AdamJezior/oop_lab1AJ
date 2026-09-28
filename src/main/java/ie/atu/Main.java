@@ -4,29 +4,12 @@ package ie.atu;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello World");
+        book myBook= new book("dune","john",289);
+        System.out.println(myBook.getTitle());
+        System.out.println(myBook.getAuthor());
+        System.out.println(myBook.getPageCount());
 
-        book firstbook = createbook("Bloom","AJ", 21);
-        book secondbook = createbook("Jungle","AJ", 62);
-        book thirdbook = createbook("Pots","Alan", 38);
 
-        firstbook.displaydetails();
-        System.out.println("\n");
-        secondbook.displaydetails();
-        System.out.println("\n");
-        thirdbook.displaydetails();
-        System.out.println("\n");
 
-        firstbook.borrowbook();
-        firstbook.displaydetails();
-
-        firstbook.borrowbook();
-    }
-    private static book createbook(String title, String author, int pageCount){
-        book book = new book();
-        book.title = title;
-        book.author = author;
-        book.pageCount = pageCount;
-        return book;
     }
 }

@@ -4,6 +4,11 @@ public class book {
     private String title;
     private String author;
     private int pageCount;
+    public enum BookStatus{
+        Available,
+        onLoan
+    }
+    private BookStatus status;
 
     public book(String title, String author, int pageCount) {
         if(title==null||title.isBlank()){
@@ -19,8 +24,8 @@ public class book {
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
+        this.status = BookStatus.Available;
     }
-
 
     public String getTitle() {
         return title;
@@ -32,5 +37,17 @@ public class book {
 
     public int getPageCount() {
         return pageCount;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public void borrow() {
+        if(status==BookStatus.onLoan){
+            throw new IllegalStateException("Book already borrowed");
+
+        }
+        status=BookStatus.onLoan;
     }
 }

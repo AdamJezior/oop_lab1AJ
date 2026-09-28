@@ -4,29 +4,20 @@ package ie.atu;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello World");
-
-        book firstbook = createbook("Bloom","AJ", 21);
-        book secondbook = createbook("Jungle","AJ", 62);
-        book thirdbook = createbook("Pots","Alan", 38);
-
-        firstbook.displaydetails();
-        System.out.println("\n");
-        secondbook.displaydetails();
-        System.out.println("\n");
-        thirdbook.displaydetails();
-        System.out.println("\n");
-
-        firstbook.borrowbook();
-        firstbook.displaydetails();
-
-        firstbook.borrowbook();
-    }
-    private static book createbook(String title, String author, int pageCount){
-        book book = new book();
-        book.title = title;
-        book.author = author;
-        book.pageCount = pageCount;
-        return book;
+        book first = new book("Dune", "Frank Herbert", 412);
+        book second = new book("Clean Code", "Robert C. Martin", 464);
+        LibraryService service = new LibraryService();
+        System.out.println(first.getStatus());
+        service.loanBook(first, 7);
+        System.out.println(first.getStatus());
+        service.returnBook(first);
+        System.out.println(first.getStatus());
+        System.out.println(second.getStatus());
+        try {
+            service.loanBook(first, 15);
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+        System.out.println(first.getStatus());
     }
 }

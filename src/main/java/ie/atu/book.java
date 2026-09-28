@@ -6,10 +6,21 @@ public class book {
     private int pageCount;
 
     public book(String title, String author, int pageCount) {
+        if(title==null||title.isBlank()){
+            throw new IllegalArgumentException("title cannot be blank");
+        }
+        if(author==null||author.isBlank()){
+            throw new IllegalArgumentException("author cannot be blank");
+        }
+        if(pageCount<=0){
+            throw new IllegalArgumentException("pageCount cannot be 0 or less than 0");
+        }
+
         this.title = title;
         this.author = author;
         this.pageCount = pageCount;
     }
+
 
     public String getTitle() {
         return title;

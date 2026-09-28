@@ -50,4 +50,11 @@ public class book {
         }
         status=BookStatus.onLoan;
     }
+
+    public void returnBook() {
+        if(status==BookStatus.Available){
+            throw new IllegalStateException("book already available");
+        }
+        status=BookStatus.Available;
+    }
 }

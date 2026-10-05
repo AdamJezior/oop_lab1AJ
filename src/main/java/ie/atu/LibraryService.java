@@ -5,28 +5,31 @@ import java.util.List;
 
 public class LibraryService {
     private static final int MAX_LOAN_DAYS = 14;
-    private final List<book> books=new ArrayList<book>();
+    private final List<Book> books=new ArrayList<Book>();
 
-    public void loanBook(book book1, int loanDays) {
-        if (book1 == null) {
-            throw new IllegalArgumentException(
-                    "Book must not be null");
+    public boolean loanBook(String title, int loanDays){
+        if(loanDays<1||loanDays>MAX_LOAN_DAYS){
+            throw new IllegalArgumentException("Loan days must range from 1 to 14");
         }
-        if (loanDays < 1 || loanDays > MAX_LOAN_DAYS) {
-            throw new IllegalArgumentException(
-                    "Loan days must be from 1 to 14");
+        Book book1=findBookByTitle(title);
+        if(book1==null){
+            return false;
         }
         book1.borrow();
+        return true;
     }
 
-    public void returnBook(book book1) {
-        if (book1 == null) {
-            throw new IllegalArgumentException("Book must not be null");
-        }
-        book1.returnBook();
+    public boolean returnBook(String title) {
+       Book book1=findBookByTitle(title);
+
+       if(book1==null){
+           return false;
+       }
+       book1.returnBook();
+       return true;
     }
 
-    public void addBook(book book1) {
+    public void addBook(Book book1) {
         if (book1 == null) {
             throw new IllegalArgumentException("Book must not be null");
         }
@@ -37,12 +40,12 @@ public class LibraryService {
         return books.size();
     }
 
-    public List<book> getAllBooks() {
+    public List<Book> getAllBooks() {
         return new ArrayList<>(books);
     }
 
-    public book findBookByTitle(String title) {
-        for (book book1 : books) {
+    public Book findBookByTitle(String title) {
+        for (Book book1 : books) {
             if(book1.getTitle().equalsIgnoreCase(title)) {
                 return book1;
             }

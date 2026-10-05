@@ -4,10 +4,6 @@ public class book {
     private String title;
     private String author;
     private int pageCount;
-    public enum BookStatus{
-        Available,
-        onLoan
-    }
     private BookStatus status;
 
     public book(String title, String author, int pageCount) {

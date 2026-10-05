@@ -15,5 +15,21 @@ public class Main {
         for(book book : service.getAllBooks()) {
             System.out.println(book.getTitle());
         }
+
+        book found=service.findBookByTitle("Dune");
+
+        if(found!=null) {
+            System.out.println("found: "+found.getTitle());
+        }
+
+        book missing=service.findBookByTitle("Jungle");
+
+        if(missing==null) {
+            System.out.println("Jungle missing");
+        }
+
+        System.out.println("Remove Clean Code: " + service.removeBook("Clean Code"));
+        System.out.println("Remove again: " + service.removeBook("Clean Code"));
+        System.out.println("Books left: " + service.getBookCount());
     }
 }

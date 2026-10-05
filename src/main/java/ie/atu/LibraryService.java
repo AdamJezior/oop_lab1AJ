@@ -40,4 +40,26 @@ public class LibraryService {
     public List<book> getAllBooks() {
         return new ArrayList<>(books);
     }
+
+    public book findBookByTitle(String title) {
+        for (book book1 : books) {
+            if(book1.getTitle().equalsIgnoreCase(title)) {
+                return book1;
+            }
+        }
+        return null;
+    }
+
+    public boolean removeBook(String title) {
+
+        if (findBookByTitle(title)==null) {
+            //throw new IllegalArgumentException("Book not available");
+            return false;
+        }
+        else{
+            books.remove(findBookByTitle(title));
+            return true;
+        }
+
+    }
 }

@@ -1,16 +1,12 @@
 package ie.atu;
 
-public class book {
+public class Book {
     private String title;
     private String author;
     private int pageCount;
-    public enum BookStatus{
-        Available,
-        onLoan
-    }
     private BookStatus status;
 
-    public book(String title, String author, int pageCount) {
+    public Book(String title, String author, int pageCount) {
         if(title==null||title.isBlank()){
             throw new IllegalArgumentException("title cannot be blank");
         }

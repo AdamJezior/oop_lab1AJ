@@ -1,4 +1,12 @@
-Lab3: 
-the 7 day call reaches borrow as 7 dosen't trigger the null illegal argument or the other illegal argument as 7 falls between 1< and >14
-the 15 day call triggers the illegal argument for exceeding loan days which exits the loanBook function
-first book is available before the fifteen-day call as the book is returned in line 13
+Lab4: 
+libraryService now owns a list of books instead pf working with a single book.
+List<Book>: this tells the compiler to create an array from the objects stored in the Book class.
+books.add & final: final locks the address of List that being the class Book, objects owned by Book are not affected.
+enhanced for loop: represents a manual search for each book until it runs out of names then it returns false.
+findBookByTitle(): for a known book returns the title of the book, for an unknown book it returns a null.
+removeBook(): it reuses the findBookByTitle function because it is more efficient, it also returns a null for incorrect entries which makes the if statement simpler.
+Main: creates objects, prints outputs
+LibraryService: List owner, search Books and check loan duration
+Book: decides if books can be borrowed, writes variables into objects, private variables
+
+project Built successfully

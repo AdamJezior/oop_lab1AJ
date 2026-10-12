@@ -65,4 +65,14 @@ public class LibraryService {
         }
 
     }
+
+    public List<Book> getBooks() {
+        return new ArrayList<>(books);
+    }
+
+    public void displayBooks() {
+        for (Book book1 : books) {
+            System.out.println(book1.getTitle() + " - " + book1.getStatus());
+        }
+    }
 }

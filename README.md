@@ -1,12 +1,17 @@
-Lab4: 
-libraryService now owns a list of books instead pf working with a single book.
-List<Book>: this tells the compiler to create an array from the objects stored in the Book class.
-books.add & final: final locks the address of List that being the class Book, objects owned by Book are not affected.
-enhanced for loop: represents a manual search for each book until it runs out of names then it returns false.
-findBookByTitle(): for a known book returns the title of the book, for an unknown book it returns a null.
-removeBook(): it reuses the findBookByTitle function because it is more efficient, it also returns a null for incorrect entries which makes the if statement simpler.
-Main: creates objects, prints outputs
-LibraryService: List owner, search Books and check loan duration
-Book: decides if books can be borrowed, writes variables into objects, private variables
+Lab5:
+The throw statement inside of book immediately sends the error message, 
+meanwhile the catch statement only activates if the try statement fails.
 
-project Built successfully
+path.of(): creates a directory path for a file even if that file dosen't exist
+file.getFileName()
+Files.exists()
+
+Added CSV persistence and handling of exceptions to application.
+
+unchecked NumberFormatException and checked IOException: the difference is that unchecked Exceptions don't require a try catch,
+meanwhile checked Exceptions require a try catch
+
+path and file: path functions cannot create files they can only show directories and create directories,
+meanwhile file functions can create folders and files
+
+onLoan restoration: the onLoan status is kept due to the object data being stored in a separate .CSV file which isn't deleted when the program ends
